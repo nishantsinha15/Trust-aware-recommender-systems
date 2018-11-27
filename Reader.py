@@ -17,11 +17,17 @@ class Reader:
         self.read_rating()
         self.read_trust()
         self.user_count = 49290
+        self.limit = 1000
+
 
     def read_rating(self):
         with open(self.rating_file, newline='') as csvfile:
             spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
+            counter = 0
             for row in spamreader:
+                counter+=1
+                if counter == 1000:
+                    break
                 u, v, rating = int(row[0]), int(row[1]), int(row[2])
                 if u not in self.rating:
                     self.rating[u] = {}
@@ -95,3 +101,6 @@ class Reader:
         for user in range(1, self.user_count):
             moletrust_matrix[user] = self.modified_bfs(user, depth) # { uid : weight, uid : w2 }
         return moletrust_matrix
+
+    def get_test_data(self):
+        pass
