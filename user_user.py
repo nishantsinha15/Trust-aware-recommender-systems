@@ -1,6 +1,5 @@
 import math
 import Reader
-import Utils
 
 average = {}
 user = {}
@@ -8,6 +7,7 @@ ordered_users = {}
 similarity = {}
 K = 20
 def user_user_predict(a, i):
+    global average, user, ordered_users, similarity, K
     ans = average[a]
     tk = 0
     j = 0
@@ -28,6 +28,7 @@ def user_user_predict(a, i):
     return ans
 
 def user_user_exec(train, test):
+    global average, user, ordered_users, similarity, K
     user = train
     content_test = test
     reader = Reader.Reader()
@@ -42,7 +43,6 @@ def user_user_exec(train, test):
 
     similarity = {}
     for u, x in user.items():
-        print(u)
         similarity[u] = {}
         for v, z in user.items():
             mod_a = 0.0
@@ -74,6 +74,9 @@ def user_user_exec(train, test):
     sz = 0
     for k,v in content_test.items():
         for i,j in v.items():
+            if(k not in user):
+                print("Anamoly")
+                continue
             error = error + abs(j - user_user_predict(k, i))
         sz = sz + len(v)
     error = error / sz
