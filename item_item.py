@@ -78,7 +78,7 @@ def item_item_exec(train, test):
     content_test = test
     for k, v in content_test.items():
         for i,j in v.items():
-            error = error + abs(j - item_item_predict(k, i, j))
+            error = error + (abs(j - item_item_predict(k, i, j)))*2
         sz += len(v)
     error = error / sz
     print(error)

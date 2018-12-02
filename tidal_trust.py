@@ -51,7 +51,7 @@ def user_user_exec(train, test):
             average[k] += j
         average[k] = average[k] / len(v)
     reader = Reader.Reader()
-    similarity = reader.moletrust(2)
+    similarity = reader.tidal_trust(2)
     # similarity = {}
     # for u, x in user.items():
     #     # print(u)

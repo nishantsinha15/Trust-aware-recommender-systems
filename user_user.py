@@ -77,7 +77,7 @@ def user_user_exec(train, test):
             if(k not in user):
                 print("Anamoly")
                 continue
-            error = error + abs(j - user_user_predict(k, i))
+            error = error + (abs(j - user_user_predict(k, i)))*2
         sz = sz + len(v)
     error = error / sz
     print(error)
