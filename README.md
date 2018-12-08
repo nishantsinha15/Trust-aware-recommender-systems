@@ -1,4 +1,6 @@
-# Collaborative-Filtering-Project
-Luv Sharma 2015051
-Nishant Sinha 2015066
-Details are provided in the report.
+# Collaborative Filtering Course Project
+
+We have implemented the paper Trust aware Recommender
+Systems by Paolo Massa and Paolo Avesani and tried another approach(Tidal
+Trust approach) on the same dataset(Epinions Dataset) and have pro-
+duced results.
